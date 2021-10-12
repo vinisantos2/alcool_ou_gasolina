@@ -11,13 +11,9 @@ class _HomeState extends State<Home> {
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
   String _textoResultado = "Resultado";
-  bool checkbox = false;
 
-  checkBox(bool valor) {
-    setState(() {
-      checkbox = valor;
-    });
-  }
+
+
 
   _calcular() {
     double precoAlcool = double.tryParse(_controllerAlcool.text);
@@ -66,7 +62,7 @@ class _HomeState extends State<Home> {
                   "Saiba qual a melhor opção para abastecimento"),
             ),
             Interface.textField("Preço alcool EX 1.99", _controllerAlcool),
-            Interface.textField("Preço alcool EX 1.99", _controllerGasolina),
+            Interface.textField("Preço da gasolina EX 1.99", _controllerGasolina),
             Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Interface.botao("calcular", _calcular)),
@@ -74,18 +70,7 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.only(top: 10),
               child: Interface.text(_textoResultado),
             ),
-            Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: CheckboxListTile(
-                    value: checkbox,
-                    title: Interface.text("titulo"),
-                    onChanged: (bool b) {
-                      setState(() {
-                        checkbox = b;
-                      });
-                    }
-                    )
-            ),
+
           ],
         ),
       )),
